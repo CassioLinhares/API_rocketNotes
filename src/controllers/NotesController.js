@@ -5,7 +5,7 @@ class NotesController{
         const {title, description, links, tags} = request.body;
         const {user_id} = request.params;
 
-        //when inserting data it returns the [note_id] - needs to be equals the what have in the bd.
+        //when inserting data it returns the ID of note = [note_id] - needs to be equals the what have in the bd.
         const [note_id] = await knex("notes").insert({ 
             title, 
             description, 
