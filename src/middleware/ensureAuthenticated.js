@@ -1,7 +1,7 @@
 //middleware will intercept the request - token (id do user) = identify the user 
-import { verify } from "jsonwebtoken";
-import authConfig from "../config/auth";
-import AppError from "../utils/appError";
+const {verify} = require("jsonwebtoken");
+const authConfig = require("../config/auth");
+const AppError = require("../utils/appError");
 
 function ensureAuthenticated(request, response, next) {
     const authHeader = request.headers.authorization; //token inside authorization
