@@ -9,7 +9,7 @@ const notesController = new NotesController();
 notesRouter.use(ensureAuthenticated); //apply middleware to all notesRouter methods
 
 notesRouter.get("/", notesController.index); //when to use QUERY don't need to insert /something
-notesRouter.post("/:user_id", notesController.create);
+notesRouter.post("/", notesController.create);
 notesRouter.get("/:id", notesController.show);
 notesRouter.delete("/:id", notesController.delete);
 
