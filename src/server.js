@@ -7,6 +7,7 @@ migrationsRun(); // database
 const express = require("express"); // import express
 const app = express(); // init express
 
+
 const routes = require("./routes") // by default it loads the file named index
 //const userRoutes = require("./routes/users.routes"); //import only that file
 
@@ -15,6 +16,9 @@ app.use(routes);
 
 const uploadConfig = require("./config/upload");
 app.use("/files", express.static(uploadConfig.UPLOAD_FOLDER));
+
+const cors = require("cors"); // backend to frontend integration
+app.use(cors());
 
 //error handling / middleware
 app.use((error, request, response, next) => { //error of client
