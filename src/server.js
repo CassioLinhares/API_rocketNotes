@@ -13,6 +13,9 @@ const routes = require("./routes") // by default it loads the file named index
 app.use(express.json()); //notify the type of data that comes in the request
 app.use(routes);
 
+const uploadConfig = require("./config/upload");
+app.use("/files", express.static(uploadConfig.UPLOAD_FOLDER));
+
 //error handling / middleware
 app.use((error, request, response, next) => { //error of client
     if (error instanceof AppError) { // if the error comes from appError

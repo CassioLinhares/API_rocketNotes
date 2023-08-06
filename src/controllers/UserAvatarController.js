@@ -1,4 +1,4 @@
-const knex = require("knex");
+const knex = require("../database/knex");
 const DiskStorage = require("../providers/diskStorage");
 const AppError = require("../utils/appError");
 
@@ -12,7 +12,7 @@ class UserAvatarController {
         const user = await knex("users").where({id: user_id}).first();
 
         if (!user) {
-            throw new AppError("Unauthenticated user");
+            throw new AppError("Unauthenticated user", 401);
         }
 
         if (user.avatar) {
@@ -25,3 +25,5 @@ class UserAvatarController {
         return response.json(user);
     }
 }
+
+module.exports = UserAvatarController;
