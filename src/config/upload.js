@@ -1,5 +1,5 @@
 const path = require("path");
-const multer = require("multer"); //lib
+const multer = require("multer"); //lib management upload
 const crypto = require("crypto"); //nodejs
 
 const TMP_FOLDER = path.resolve(__dirname, "..", "..", "tmp");
