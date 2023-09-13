@@ -1,4 +1,5 @@
 require("express-async-errors"); // import error handling library
+require("dotenv/config"); // Sensitive data - environment variables
 const AppError = require("./utils/appError"); //import appError
 
 const migrationsRun = require("./database/sqlite/migrations");
@@ -34,6 +35,6 @@ app.use((error, request, response, next) => { //error of client
     });
 });
 
-const PORT = 3333;
+const PORT = process.env.PORT || 3333;
 
 app.listen(PORT, () => console.log(`Server is running on Port ${PORT}`)); //application start will display the port
